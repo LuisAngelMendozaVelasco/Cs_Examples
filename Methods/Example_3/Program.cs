@@ -1,6 +1,9 @@
-﻿//Method with parameters
+﻿////////////////////////////
+// Method with parameters //
+////////////////////////////
 
 using System;
+using System.Runtime.InteropServices;
 
 namespace MyApplication
 {
@@ -16,8 +19,20 @@ namespace MyApplication
             MyMethod("Liam");
             MyMethod("Jenny");
             MyMethod("Anja");
-            Console.Write($"{Environment.NewLine}Press any key to exit...");
-            Console.ReadKey(true);
-        }  
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                Console.Write($"{Environment.NewLine}Press any key to exit...");
+                Console.ReadKey(true); 
+            }  
+        }
     }
 }
+
+/*
+Output:
+
+Liam Refsnes
+Jenny Refsnes
+Anja Refsnes
+*/

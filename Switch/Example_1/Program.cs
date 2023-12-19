@@ -1,6 +1,9 @@
-﻿//The switch statement
+﻿//////////////////////////
+// The switch statement //
+//////////////////////////
 
 using System;
+using System.Runtime.InteropServices;
 
 namespace MyApplication
 {
@@ -34,8 +37,18 @@ namespace MyApplication
                     Console.WriteLine("Sunday");
                     break;
             }   
-            Console.Write($"{Environment.NewLine}Press any key to exit...");
-            Console.ReadKey(true);   
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                Console.Write($"{Environment.NewLine}Press any key to exit...");
+                Console.ReadKey(true); 
+            }          
         }
     }
 }
+
+/*
+Output:
+
+Thursday
+*/

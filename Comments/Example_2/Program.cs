@@ -1,6 +1,9 @@
-﻿//Single-line comment at the end of a line of code
+﻿//////////////////////////////////////////////////////
+// Single-line comment at the end of a line of code //
+//////////////////////////////////////////////////////
 
 using System;
+using System.Runtime.InteropServices;
 
 namespace HelloWorld
 {
@@ -9,8 +12,18 @@ namespace HelloWorld
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");  // This is a comment   
-            Console.Write($"{Environment.NewLine}Press any key to exit...");
-            Console.ReadKey(true);    
+            
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                Console.Write($"{Environment.NewLine}Press any key to exit...");
+                Console.ReadKey(true); 
+            }     
         }
     }
 }
+
+/*
+Output:
+
+Hello World!
+*/

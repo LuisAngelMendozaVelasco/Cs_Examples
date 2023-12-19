@@ -1,6 +1,9 @@
-﻿//Create a bool (boolean) type
+﻿//////////////////////////////////
+// Create a bool (boolean) type //
+//////////////////////////////////
 
 using System;
+using System.Runtime.InteropServices;
 
 namespace MyApplication
 {
@@ -13,8 +16,19 @@ namespace MyApplication
 
             Console.WriteLine(isCSharpFun);   // Outputs True
             Console.WriteLine(isFishTasty);   // Outputs False    
-            Console.Write($"{Environment.NewLine}Press any key to exit...");
-            Console.ReadKey(true);
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                Console.Write($"{Environment.NewLine}Press any key to exit...");
+                Console.ReadKey(true); 
+            }          
         }
     }
 }
+
+/*
+Output:
+
+True
+False
+*/

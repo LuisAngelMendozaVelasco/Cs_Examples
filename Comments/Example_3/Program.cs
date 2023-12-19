@@ -1,6 +1,9 @@
-﻿//Multi-line comment
+﻿////////////////////////
+// Multi-line comment //
+////////////////////////
 
 using System;
+using System.Runtime.InteropServices;
 
 namespace HelloWorld
 {
@@ -8,11 +11,23 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
-            /* The code below will print the words Hello World
-            to the screen, and it is amazing */
-            Console.WriteLine("Hello World!");  
-            Console.Write($"{Environment.NewLine}Press any key to exit...");
-            Console.ReadKey(true);    
+            /* 
+            The code below will print the words Hello World
+            to the screen, and it is amazing 
+            */
+            Console.WriteLine("Hello World!"); 
+             
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                Console.Write($"{Environment.NewLine}Press any key to exit...");
+                Console.ReadKey(true); 
+            }     
         }
     }
 }
+
+/*
+Output:
+
+Hello World!
+*/

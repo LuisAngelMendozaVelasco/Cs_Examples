@@ -1,6 +1,9 @@
-﻿//String concatenation
+﻿//////////////////////////
+// String concatenation //
+//////////////////////////
 
 using System;
+using System.Runtime.InteropServices;
 
 namespace MyApplication
 {
@@ -13,8 +16,18 @@ namespace MyApplication
             string name = firstName + lastName;
 
             Console.WriteLine(name);
-            Console.Write($"{Environment.NewLine}Press any key to exit...");
-            Console.ReadKey(true);
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                Console.Write($"{Environment.NewLine}Press any key to exit...");
+                Console.ReadKey(true); 
+            }          
         }
     }
 }
+
+/*
+Output:
+
+Luis Mendoza
+*/

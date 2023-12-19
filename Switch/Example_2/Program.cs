@@ -1,6 +1,9 @@
-﻿//The switch statement with a default keyword
+﻿/////////////////////////////////////////////////
+// The switch statement with a default keyword //
+/////////////////////////////////////////////////
 
 using System;
+using System.Runtime.InteropServices;
 
 namespace MyApplication
 {
@@ -22,8 +25,18 @@ namespace MyApplication
                     Console.WriteLine("Looking forward to the Weekend.");
                     break;
             }
-            Console.Write($"{Environment.NewLine}Press any key to exit...");
-            Console.ReadKey(true);    
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                Console.Write($"{Environment.NewLine}Press any key to exit...");
+                Console.ReadKey(true); 
+            }          
         }
     }
 }
+
+/*
+Output:
+
+Looking forward to the Weekend.
+*/

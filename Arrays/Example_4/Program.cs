@@ -1,6 +1,9 @@
-﻿//Access and change an array element
+﻿////////////////////////////////////////
+// Access and change an array element //
+////////////////////////////////////////
 
 using System;
+using System.Runtime.InteropServices;
 
 namespace MyApplication
 {
@@ -12,8 +15,18 @@ namespace MyApplication
             
             cars[0] = "Opel";
             Console.WriteLine(cars[0]);    
-            Console.Write($"{Environment.NewLine}Press any key to exit...");
-            Console.ReadKey(true); 
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                Console.Write($"{Environment.NewLine}Press any key to exit...");
+                Console.ReadKey(true); 
+            }          
         }
     }
 }
+
+/*
+Output:
+
+Opel
+*/

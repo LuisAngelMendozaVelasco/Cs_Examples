@@ -1,6 +1,9 @@
-﻿//Use the Substring() method together with the IndexOf() method
+﻿///////////////////////////////////////////////////////////////////
+// Use the Substring() method together with the IndexOf() method //
+///////////////////////////////////////////////////////////////////
 
 using System;
+using System.Runtime.InteropServices;
 
 namespace GetLastName
 {
@@ -19,8 +22,18 @@ namespace GetLastName
 
             // Print the result
             Console.WriteLine(lastName);
-            Console.Write($"{Environment.NewLine}Press any key to exit...");
-            Console.ReadKey(true);
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                Console.Write($"{Environment.NewLine}Press any key to exit...");
+                Console.ReadKey(true); 
+            }          
         }
     }
 }
+
+/*
+Output:
+
+Mendoza
+*/

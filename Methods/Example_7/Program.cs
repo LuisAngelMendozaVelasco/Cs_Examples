@@ -1,6 +1,9 @@
-﻿//Return the sum of a method's two parameters
+﻿/////////////////////////////////////////////////
+// Return the sum of a method's two parameters //
+/////////////////////////////////////////////////
 
 using System;
+using System.Runtime.InteropServices;
 
 namespace MyApplication
 {
@@ -16,8 +19,18 @@ namespace MyApplication
             int z = MyMethod(5, 3);
 
             Console.WriteLine(z);
-            Console.Write($"{Environment.NewLine}Press any key to exit...");
-            Console.ReadKey(true);
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                Console.Write($"{Environment.NewLine}Press any key to exit...");
+                Console.ReadKey(true); 
+            }  
         }
     }
 }
+
+/*
+Output:
+
+8
+*/

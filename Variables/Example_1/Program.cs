@@ -1,6 +1,9 @@
-﻿//Create a string variable
+﻿//////////////////////////////
+// Create a string variable //
+//////////////////////////////
 
 using System;
+using System.Runtime.InteropServices;
 
 namespace MyApplication
 {
@@ -8,11 +11,20 @@ namespace MyApplication
     {
         static void Main(string[] args)
         {
-            string name = "John";
-            
+            string name = "Luis";
             Console.WriteLine(name);
-            Console.Write($"{Environment.NewLine}Press any key to exit...");
-            Console.ReadKey(true);             
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                Console.Write($"{Environment.NewLine}Press any key to exit...");
+                Console.ReadKey(true); 
+            }          
         }
     }
 }
+
+/*
+Output:
+
+Luis
+*/

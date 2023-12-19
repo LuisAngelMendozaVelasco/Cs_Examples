@@ -1,6 +1,9 @@
-﻿//Find the length of a string
+﻿/////////////////////////////////
+// Find the length of a string //
+/////////////////////////////////
 
 using System;
+using System.Runtime.InteropServices;
 
 namespace MyApplication
 {
@@ -9,10 +12,19 @@ namespace MyApplication
         static void Main(string[] args)
         {
             string txt = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
             Console.WriteLine("The length of the txt string is: " + txt.Length);
-            Console.Write($"{Environment.NewLine}Press any key to exit...");
-            Console.ReadKey(true);
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                Console.Write($"{Environment.NewLine}Press any key to exit...");
+                Console.ReadKey(true); 
+            }          
         }
     }
 }
+
+/*
+Output:
+
+The length of the txt string is: 26
+*/

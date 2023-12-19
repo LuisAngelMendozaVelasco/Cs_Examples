@@ -1,6 +1,9 @@
-﻿//Using methods to convert strings to uppercase and lowercase
+﻿/////////////////////////////////////////////////////////////////
+// Using methods to convert strings to uppercase and lowercase //
+/////////////////////////////////////////////////////////////////
 
 using System;
+using System.Runtime.InteropServices;
 
 namespace MyApplication
 {
@@ -12,8 +15,19 @@ namespace MyApplication
 
             Console.WriteLine(txt.ToUpper());   // Outputs "HELLO WORLD"
             Console.WriteLine(txt.ToLower());   // Outputs "hello world"
-            Console.Write($"{Environment.NewLine}Press any key to exit...");
-            Console.ReadKey(true);
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                Console.Write($"{Environment.NewLine}Press any key to exit...");
+                Console.ReadKey(true); 
+            }          
         }
     }
 }
+
+/*
+Output:
+
+HELLO WORLD
+hello world
+*/

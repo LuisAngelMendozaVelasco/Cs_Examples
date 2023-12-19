@@ -1,6 +1,9 @@
-﻿//Addition assigment operator
+﻿/////////////////////////////////
+// Addition assigment operator //
+/////////////////////////////////
 
 using System;
+using System.Runtime.InteropServices;
 
 namespace MyApplication
 {
@@ -12,8 +15,18 @@ namespace MyApplication
             
             x += 5;
             Console.WriteLine(x);  
-            Console.Write($"{Environment.NewLine}Press any key to exit...");
-            Console.ReadKey(true);
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                Console.Write($"{Environment.NewLine}Press any key to exit...");
+                Console.ReadKey(true); 
+            }          
         }
     }
 }
+
+/*
+Output:
+
+15
+*/

@@ -1,6 +1,9 @@
-﻿//Math.Abs(x) - return the absolute (positive) value of x
+﻿/////////////////////////////////////////////////////////////
+// Math.Abs(x) - return the absolute (positive) value of x //
+/////////////////////////////////////////////////////////////
 
 using System;
+using System.Runtime.InteropServices;
 
 namespace MyApplication
 {
@@ -8,9 +11,19 @@ namespace MyApplication
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Math.Abs(-4.7));  
-            Console.Write($"{Environment.NewLine}Press any key to exit...");
-            Console.ReadKey(true);
+            Console.WriteLine(Math.Abs(-4.7)); 
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                Console.Write($"{Environment.NewLine}Press any key to exit...");
+                Console.ReadKey(true); 
+            }          
         }
     }
 }
+
+/*
+Output:
+
+4.7
+*/

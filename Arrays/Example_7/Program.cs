@@ -1,6 +1,9 @@
-﻿//Sort an array
+﻿///////////////////
+// Sort an array //
+///////////////////
 
 using System;
+using System.Runtime.InteropServices;
 
 namespace MyApplication
 {
@@ -28,8 +31,25 @@ namespace MyApplication
                 Console.WriteLine(i);
             }
 
-            Console.Write($"{Environment.NewLine}Press any key to exit...");
-            Console.ReadKey(true); 
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                Console.Write($"{Environment.NewLine}Press any key to exit...");
+                Console.ReadKey(true); 
+            }          
         }
     }
 }
+
+/*
+Output:
+
+BMW
+Ford
+Mazda
+Volvo
+
+1
+5
+8
+9
+*/

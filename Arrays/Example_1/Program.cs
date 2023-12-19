@@ -1,6 +1,9 @@
-﻿//Create and access an array
+﻿////////////////////////////////
+// Create and access an array //
+////////////////////////////////
 
 using System;
+using System.Runtime.InteropServices;
 
 namespace MyApplication
 {
@@ -11,8 +14,18 @@ namespace MyApplication
             string[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
 
             Console.WriteLine(cars[0]);
-            Console.Write($"{Environment.NewLine}Press any key to exit...");
-            Console.ReadKey(true); 
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                Console.Write($"{Environment.NewLine}Press any key to exit...");
+                Console.ReadKey(true); 
+            }          
         }
     }
 }
+
+/*
+Output:
+
+Volvo
+*/

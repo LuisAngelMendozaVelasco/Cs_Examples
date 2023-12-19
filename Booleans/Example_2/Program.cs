@@ -1,6 +1,9 @@
-﻿//Find out if an expression is true or false
+﻿////////////////////////////////////////////////
+// Find out if an expression is true or false //
+////////////////////////////////////////////////
 
 using System;
+using System.Runtime.InteropServices;
 
 namespace MyApplication
 {
@@ -12,8 +15,18 @@ namespace MyApplication
             int y = 9;
             
             Console.WriteLine(x > y); // returns True, because 10 is higher than 9
-            Console.Write($"{Environment.NewLine}Press any key to exit...");
-            Console.ReadKey(true);
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                Console.Write($"{Environment.NewLine}Press any key to exit...");
+                Console.ReadKey(true); 
+            }          
         }
     }
 }
+
+/*
+Output:
+
+True
+*/

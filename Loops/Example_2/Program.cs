@@ -1,6 +1,9 @@
-﻿//Do while loop
+﻿///////////////////
+// Do while loop //
+///////////////////
 
 using System;
+using System.Runtime.InteropServices;
 
 namespace MyApplication
 {
@@ -16,8 +19,22 @@ namespace MyApplication
                 i++;
             }
             while(i < 5);
-            Console.Write($"{Environment.NewLine}Press any key to exit...");
-            Console.ReadKey(true);
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                Console.Write($"{Environment.NewLine}Press any key to exit...");
+                Console.ReadKey(true); 
+            }          
         }
     }
 }
+
+/*
+Output:
+
+0
+1
+2
+3
+4
+*/

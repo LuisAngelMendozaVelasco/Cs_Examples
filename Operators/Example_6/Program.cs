@@ -1,6 +1,9 @@
-﻿//Increment operator
+﻿////////////////////////
+// Increment operator //
+////////////////////////
 
 using System;
+using System.Runtime.InteropServices;
 
 namespace MyApplication
 {
@@ -11,9 +14,19 @@ namespace MyApplication
             int x = 5;
 
             x++;
-            Console.WriteLine(x);  
-            Console.Write($"{Environment.NewLine}Press any key to exit...");
-            Console.ReadKey(true);
+            Console.WriteLine(x); 
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                Console.Write($"{Environment.NewLine}Press any key to exit...");
+                Console.ReadKey(true); 
+            }          
         }
     }
 }
+
+/*
+Output:
+
+6
+*/

@@ -1,6 +1,9 @@
-﻿//Default parameter value
+﻿/////////////////////////////
+// Default parameter value //
+/////////////////////////////
 
 using System;
+using System.Runtime.InteropServices;
 
 namespace MyApplication
 {
@@ -17,8 +20,21 @@ namespace MyApplication
             MyMethod("India");
             MyMethod();
             MyMethod("USA");
-            Console.Write($"{Environment.NewLine}Press any key to exit...");
-            Console.ReadKey(true);
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                Console.Write($"{Environment.NewLine}Press any key to exit...");
+                Console.ReadKey(true); 
+            }  
         }
     }
 }
+
+/*
+Output:
+
+Sweden
+India
+Norway
+USA
+*/

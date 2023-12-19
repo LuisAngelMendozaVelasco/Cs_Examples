@@ -1,6 +1,9 @@
-﻿//Change an array element
+﻿/////////////////////////////
+// Change an array element //
+/////////////////////////////
 
 using System;
+using System.Runtime.InteropServices;
 
 namespace MyApplication
 {
@@ -11,9 +14,19 @@ namespace MyApplication
             string[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
 
             cars[0] = "Opel";
-            Console.WriteLine(cars[0]);  
-            Console.Write($"{Environment.NewLine}Press any key to exit...");
-            Console.ReadKey(true); 
-        }  
+            Console.WriteLine(cars[0]); 
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                Console.Write($"{Environment.NewLine}Press any key to exit...");
+                Console.ReadKey(true); 
+            }          
+        }
     }
 }
+
+/*
+Output:
+
+Opel
+*/

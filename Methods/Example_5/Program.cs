@@ -1,6 +1,9 @@
-﻿//Multiple parameters
+﻿/////////////////////////
+// Multiple parameters //
+/////////////////////////
 
 using System;
+using System.Runtime.InteropServices;
 
 namespace MyApplication
 {
@@ -16,8 +19,20 @@ namespace MyApplication
             MyMethod("Liam", 5);
             MyMethod("Jenny", 8);
             MyMethod("Anja", 31);
-            Console.Write($"{Environment.NewLine}Press any key to exit...");
-            Console.ReadKey(true);
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                Console.Write($"{Environment.NewLine}Press any key to exit...");
+                Console.ReadKey(true); 
+            }  
         }
     }
 }
+
+/*
+Output:
+
+Liam is 5
+Jenny is 8
+Anja is 31
+*/

@@ -1,6 +1,9 @@
-﻿//String concatenation with the Concat() method
+﻿///////////////////////////////////////////////////
+// String concatenation with the Concat() method //
+///////////////////////////////////////////////////
 
 using System;
+using System.Runtime.InteropServices;
 
 namespace MyApplication
 {
@@ -13,8 +16,18 @@ namespace MyApplication
             string name = string.Concat(firstName, lastName);
 
             Console.WriteLine(name);
-            Console.Write($"{Environment.NewLine}Press any key to exit...");
-            Console.ReadKey(true);
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                Console.Write($"{Environment.NewLine}Press any key to exit...");
+                Console.ReadKey(true); 
+            }          
         }
     }
 }
+
+/*
+Output:
+
+Luis Mendoza
+*/

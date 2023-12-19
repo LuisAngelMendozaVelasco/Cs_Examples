@@ -1,6 +1,9 @@
-﻿//Find the length of an array
+﻿/////////////////////////////////
+// Find the length of an array //
+/////////////////////////////////
 
 using System;
+using System.Runtime.InteropServices;
 
 namespace MyApplication
 {
@@ -11,8 +14,18 @@ namespace MyApplication
             string[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
 
             Console.WriteLine(cars.Length);
-            Console.Write($"{Environment.NewLine}Press any key to exit...");
-            Console.ReadKey(true); 
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                Console.Write($"{Environment.NewLine}Press any key to exit...");
+                Console.ReadKey(true); 
+            }          
         }
     }
 }
+
+/*
+Output:
+
+4
+*/

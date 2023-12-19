@@ -1,6 +1,9 @@
-﻿//Math.Max(x,y) - return the highest value of x and y
+﻿/////////////////////////////////////////////////////////
+// Math.Max(x,y) - return the highest value of x and y //
+/////////////////////////////////////////////////////////
 
 using System;
+using System.Runtime.InteropServices;
 
 namespace MyApplication
 {
@@ -9,8 +12,18 @@ namespace MyApplication
         static void Main(string[] args)
         {
             Console.WriteLine(Math.Max(5, 10));  
-            Console.Write($"{Environment.NewLine}Press any key to exit...");
-            Console.ReadKey(true);
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                Console.Write($"{Environment.NewLine}Press any key to exit...");
+                Console.ReadKey(true); 
+            }          
         }
     }
 }
+
+/*
+Output:
+
+10
+*/

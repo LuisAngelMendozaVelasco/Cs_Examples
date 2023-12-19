@@ -1,6 +1,9 @@
-﻿//The try..catch statement
+﻿//////////////////////////////
+// The try..catch statement //
+//////////////////////////////
 
 using System;
+using System.Runtime.InteropServices;
 
 namespace MyApplication
 {
@@ -14,12 +17,22 @@ namespace MyApplication
 
                 Console.WriteLine(myNumbers[10]);
             }
-            catch(Exception e)
+            catch(Exception)
             {
-                Console.WriteLine("Something went wrong.");
+                Console.WriteLine("Something went wrong!");
             }
-            Console.Write($"{Environment.NewLine}Press any key to exit...");
-            Console.ReadKey(true);    
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                Console.Write($"{Environment.NewLine}Press any key to exit...");
+                Console.ReadKey(true); 
+            }  
         }
     }
 }
+
+/*
+Output:
+
+Something went wrong!
+*/

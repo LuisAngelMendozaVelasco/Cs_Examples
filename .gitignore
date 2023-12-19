@@ -1,5 +1,9 @@
-# Folder #
-###################
+# Folders #
+##########
 /.vscode
 **/bin
 **/obj
+
+# Files #
+#########
+Cs_Examples.sln

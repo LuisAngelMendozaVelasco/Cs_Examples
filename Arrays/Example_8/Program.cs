@@ -1,7 +1,10 @@
-﻿//Using System.Linq
+﻿///////////////////////
+// Using System.Linq //
+///////////////////////
 
 using System;
 using System.Linq;
+using System.Runtime.InteropServices;
 
 namespace MyApplication
 {
@@ -14,8 +17,20 @@ namespace MyApplication
             Console.WriteLine(myNumbers.Max());  // largest value
             Console.WriteLine(myNumbers.Min());  // smallest value
             Console.WriteLine(myNumbers.Sum());  // sum of myNumbers
-            Console.Write($"{Environment.NewLine}Press any key to exit...");
-            Console.ReadKey(true);
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                Console.Write($"{Environment.NewLine}Press any key to exit...");
+                Console.ReadKey(true); 
+            }          
         }
     }
 }
+
+/*
+Output:
+
+9
+1
+23
+*/

@@ -1,6 +1,9 @@
-﻿//Math.Sqrt(x) - return the square root of x
+﻿////////////////////////////////////////////////
+// Math.Sqrt(x) - return the square root of x //
+////////////////////////////////////////////////
 
 using System;
+using System.Runtime.InteropServices;
 
 namespace MyApplication
 {
@@ -9,8 +12,18 @@ namespace MyApplication
         static void Main(string[] args)
         {
             Console.WriteLine(Math.Sqrt(64));  
-            Console.Write($"{Environment.NewLine}Press any key to exit...");
-            Console.ReadKey(true);
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                Console.Write($"{Environment.NewLine}Press any key to exit...");
+                Console.ReadKey(true); 
+            }          
         }
     }
 }
+
+/*
+Output:
+
+8
+*/

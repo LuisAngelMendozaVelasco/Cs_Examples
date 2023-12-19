@@ -1,6 +1,9 @@
-﻿//Overwrite an existing variable value
+﻿//////////////////////////////////////////
+// Overwrite an existing variable value //
+//////////////////////////////////////////
 
 using System;
+using System.Runtime.InteropServices;
 
 namespace MyApplication
 {
@@ -9,11 +12,20 @@ namespace MyApplication
         static void Main(string[] args)
         {
             int myNum = 15;
-            
             myNum = 20;
             Console.WriteLine(myNum);
-            Console.Write($"{Environment.NewLine}Press any key to exit...");
-            Console.ReadKey(true);
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                Console.Write($"{Environment.NewLine}Press any key to exit...");
+                Console.ReadKey(true); 
+            }          
         }
     }
 }
+
+/*
+Output:
+
+20
+*/

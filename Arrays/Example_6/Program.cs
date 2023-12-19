@@ -1,6 +1,9 @@
-﻿//Loop through an array with foreach
+﻿////////////////////////////////////////
+// Loop through an array with foreach //
+////////////////////////////////////////
 
 using System;
+using System.Runtime.InteropServices;
 
 namespace MyApplication
 {
@@ -14,8 +17,21 @@ namespace MyApplication
             {
                 Console.WriteLine(i);
             }   
-            Console.Write($"{Environment.NewLine}Press any key to exit...");
-            Console.ReadKey(true); 
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                Console.Write($"{Environment.NewLine}Press any key to exit...");
+                Console.ReadKey(true); 
+            }          
         }
     }
 }
+
+/*
+Output:
+
+Volvo
+BMW
+Ford
+Mazda
+*/
